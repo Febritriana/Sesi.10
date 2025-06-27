@@ -1,11 +1,19 @@
-const { Builder, By, until } = require('selenium-webdriver');
+const { Builder, By, until, Options } = require('selenium-webdriver');
 const assert = require('assert');
+const chrome = require('selenium-webdriver/chrome')
 
 describe('SauceDemo Automation', function () {
   let driver;
 
+beforeEach(async function(){
+  console.log("ini di dalam before () hook")
+})
+
 it('Sukses Login', async function(){
-  driver = await new Builder().forBrowser('chrome').build();
+  options = new chrome.Options;
+  options.addArguments ("--headless");
+
+  driver = await new Builder().forBrowser('chrome').setChromeOptions(options).build();
 
   await driver.get('https://www.saucedemo.com');
 
@@ -43,8 +51,9 @@ it('Urutkan Produk dari Z ke A', async function () {
     const sortedNames = [...productNames].sort().reverse();
     assert.deepStrictEqual(productNames, sortedNames);
   
- await driver.quit();
 
+
+ await driver.quit();
 
 })
   });
