@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "Selenium WebDriver tests using Mocha with Mochawesome reports",
     "scripts": {
-        "tests": "mocha tests/sesi-9.js --recursive --timeout 60000",
+        "tests": "mocha tests/Sesi-9.js --recursive --timeout 60000",
         "tests-mochawesome": "mocha tests/sesi-9.js --recursive --timeout 60000 --reporter mochawesome",
         "tests-simple-html": "mocha tests/sesi-9.js --recursive --timeout 60000 --reporter mochawesome"
     },
